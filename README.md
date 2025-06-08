@@ -55,10 +55,4 @@ Uygulama kullanıcı dostu bir arayüz sunar:
 - Tek hata bulunursa **Düzelt** butonu aktif hale gelir
 - Çift hata varsa tespit edilir ama düzeltilemez 🚫
 
-## 👨‍💻 Geliştirici
 
-- **Ahmet Çimen**
-- 🏛️ Bursa Teknik Üniversitesi  
-- 💻 BLM230 - Bilgisayar Mimarisi  
-- 🎓 Öğrenci No: 23360859073  
-- 📌 Proje: *Hamming SEC-DED Kodlayıcı ve Simülatör*
