@@ -8,19 +8,13 @@ class GUI:
         self.root.title("Karakter Sınır Girişi")
         self.root.geometry("800x400")
         
-        self.bg_color = "#2e1f1f"        # Koyu kestane zemin
-        self.frame_bg = "#3b2f2f"        # Hafif açık çerçeve
-        self.text_color = "#f5f5dc"      # Açık krem yazı
-        self.entry_bg = "#4b3832"        # Sıcak kahve entry
-        self.button_bg = "#d2691e"       # Tarçın-turuncu buton
-        self.button_fg = "#ffffff"       # Beyaz yazı
+        self.bg_color = "#2e1f1f"    
+        self.frame_bg = "#3b2f2f"       
+        self.text_color = "#f5f5dc"     
+        self.entry_bg = "#4b3832"      
+        self.button_bg = "#d2691e"      
+        self.button_fg = "#ffffff"      
 
-
-
-
-
-
-        
 
         self.root.configure(bg=self.bg_color)
         
@@ -48,9 +42,9 @@ class GUI:
 
         
         def validate_binary(P):
-            if P == "":  
+            if P == "": 
                 return True
-            if all(c in '01' for c in P):  
+            if all(c in '01' for c in P): 
                 return True
             return False
         
@@ -92,7 +86,7 @@ class GUI:
         def validate_number(P):
             if P == "": 
                 return True
-            if P.isdigit():  
+            if P.isdigit(): 
                 return True
             return False
         
@@ -102,7 +96,7 @@ class GUI:
         self.manual_error_entry.pack(side="left", padx=(0,5))
         
         self.manual_error_button = tk.Button(manual_error_frame, text="İndex'e Hata Ekle", 
-                                           width=16, height=3, command=self.manualErrorButtonAction, bg=self.button_bg, fg=self.button_fg)
+                                             width=16, height=3, command=self.manualErrorButtonAction, bg=self.button_bg, fg=self.button_fg)
         self.manual_error_button.pack(side="left")
 
         
@@ -119,9 +113,9 @@ class GUI:
         
         self.fix_button = tk.Button(bottom, text="Düzelt", width=16, height=3, command=self.fix_error, fg="green", bg=self.button_bg)
         self.fix_button.pack(side="left", padx=(0,10))
-        self.fix_button.pack_forget()  
+        self.fix_button.pack_forget() 
         
-        self.error_position = None  
+        self.error_position = None 
     def dataLimit(self, *args):
         try:
             limit = int(self.chosenBitNumber.get())
@@ -134,10 +128,10 @@ class GUI:
             self.dataInput.set(current_text)
 
         self.reversedDataList.clear()
-        for ch in reversed(current_text):
+        # Changed this line: removed reversed()
+        for ch in current_text: # No longer reversing the input data
             self.reversedDataList.append(ch)
         self.hamming_generator()
-
 
 
     def hamming_generator(self):
@@ -158,26 +152,19 @@ class GUI:
                     if hammingList[i]==1:
                         if i ==1:
 
-                            
                         elif i ==2:
-                            
                         elif i ==4:
-                            
                         elif i ==8:
-                            
                         elif i ==16:
-                        
                         elif i ==32:
-                        
                         bu yaklaşım uzun sürebilr""" 
 
-        hammingList = [0] * (m+p+1)  
+        hammingList = [0] * (m+p+1) 
         dataIndex=0
         for i in range(1,m+p+1):
             if i not in checkPositions:
                 hammingList[i]=int(self.reversedDataList[dataIndex]) 
                 dataIndex +=1
-
 
 
         for parityPos in checkPositions: 
@@ -196,8 +183,6 @@ class GUI:
 
         self.hammingListLast=hammingList[1:]
         self.reversedHammngListLast = self.hammingListLast[::-1]
-
-
 
 
     def encode_action(self):
@@ -261,7 +246,7 @@ class GUI:
 
         hammingText = self.hamming_entry.get()
         hammingArray = [int(bit) for bit in hammingText]
-        n = len(hammingArray) - 1  
+        n = len(hammingArray) - 1 
         p = 0
         while (2 ** p) < n + 1:
             p += 1
@@ -300,7 +285,7 @@ class GUI:
             
             self.error_label.config(text="Çift hata tespit edildi!")
         elif (syndrome == 0 and globalParityError):
-            self.error_label.config(text="Tek hata tespit edildi!")
+            self.error_label.config(text=f"Tek hata bulundu! Global parity biti hatalı")
             self.error_position = syndrome
             self.fix_button.pack(side="left", padx=(0,10))
         else:
@@ -324,11 +309,11 @@ class GUI:
             if error_idx < len(hammingArray):
                 hammingArray[error_idx] = 1 - hammingArray[error_idx]
             
-           
+            
             self.hammingListLast = hammingArray
             self.updateHamming_Error()
             
-          
+        
             self.error_label.config(text="Hata düzeltildi!")
             self.fix_button.pack_forget()
             self.error_position = None
@@ -344,7 +329,7 @@ class GUI:
                 self.error_label.config(text=f"Geçersiz index! 0-{len(self.hammingListLast)-1} arası bir değer girin.")
                 return
                 
-         
+            
             self.hammingListLast[error_index] = 1 - self.hammingListLast[error_index]
             
             self.updateHamming_Error()
@@ -354,6 +339,6 @@ class GUI:
             self.error_label.config(text="Lütfen geçerli bir sayı girin!")
 
 if __name__ == "__main__":
-    root = tk.Tk() 
+    root = tk.Tk()  
     app = GUI(root)
     root.mainloop()
