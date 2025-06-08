@@ -60,8 +60,8 @@ Uygulama kullanıcı dostu bir arayüz sunar:
 Projeyi bilgisayarınıza klonlamak için:
 
 ```bash
-git clone https://github.com/kullaniciadi/hamming-sec-ded-simulator.git
-cd hamming-sec-ded-simulator
+git clone https://github.com/AhmettCimen/Hamming-Code-Simulator.git
+cd Hamming-Code-Simulator
 
 
 ```
