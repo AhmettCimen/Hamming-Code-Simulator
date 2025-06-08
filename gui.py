@@ -5,7 +5,7 @@ import random
 class GUI:
     def __init__(self, root):
         self.root = root
-        self.root.title("Karakter Sınır Girişi")
+        self.root.title("Hamming Code Simulator")
         self.root.geometry("800x400")
         
         self.bg_color = "#2e1f1f"    
