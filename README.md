@@ -69,6 +69,8 @@ Uygulamayı çalıştırmak için:
 ```bash
 python gui.py
 ```
+# 🧾 Rapor
+[Rapor dosyasını indir](BLM230_Proje_AhmetÇimen_23360859073.pdf)
 
 
 
