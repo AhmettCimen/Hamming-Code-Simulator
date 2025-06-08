@@ -55,4 +55,24 @@ Uygulama kullanıcı dostu bir arayüz sunar:
 - Tek hata bulunursa **Düzelt** butonu aktif hale gelir
 - Çift hata varsa tespit edilir ama düzeltilemez 🚫
 
+# 🚀 Kullanım
+
+Projeyi bilgisayarınıza klonlamak için:
+
+```bash
+git clone https://github.com/kullaniciadi/hamming-sec-ded-simulator.git
+cd hamming-sec-ded-simulator
+
+
+```
+Uygulamayı çalıştırmak için:
+```bash
+python gui.py
+```
+
+
+
+
+
+
 
